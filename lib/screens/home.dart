@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:realestate/models/cats.dart';
 import 'package:realestate/screens/widgets/brokers.dart';
 import 'package:realestate/screens/widgets/categories.dart';
+import 'package:realestate/screens/widgets/house_list_view.dart';
 import 'package:realestate/widgets/custom_app_bar.dart';
 import 'package:realestate/widgets/user_greet.dart';
 
@@ -48,6 +49,16 @@ class _HomePageState extends State<HomePage> {
             margin: const EdgeInsets.only(left: 20, top: 20),
             child: const Text('Popular Houses',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          ),
+          Expanded(
+              child: HouseListView(selected, (int index) {
+            setState(() {
+              selected = index;
+            });
+          }, catategory, pageController)),
+          FloatingActionButton(
+            onPressed: () {},
+            child: const Icon(Icons.settings),
           )
         ],
       ),
